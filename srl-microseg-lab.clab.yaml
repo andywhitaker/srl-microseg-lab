@@ -6,12 +6,12 @@ topology:
     srl1:
       kind: nokia_srlinux
       type: ixr-d2l
-      image: ghcr.io/nokia/srlinux:latest
+      image: ghcr.io/nokia/srlinux:26.3.1
       startup-config: startup/srl1.partial.txt
     srl2:
       kind: nokia_srlinux
       type: ixr-d2l
-      image: ghcr.io/nokia/srlinux:latest
+      image: ghcr.io/nokia/srlinux:26.3.1
       startup-config: startup/srl2.partial.txt
 
     client1:

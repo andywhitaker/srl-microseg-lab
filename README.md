@@ -1,4 +1,4 @@
-# SRL Micro-Segmentation lab
+# SR Linux Micro-Segmentation Lab
 
 ## Topology
 ![topology](srl-microseg-lab-topology.png)
