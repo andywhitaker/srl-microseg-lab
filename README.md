@@ -53,6 +53,12 @@ Any attempt to ping across groups will fail.
 
 To ping log into the shell of one of the clients:
 
+```
+docker exec -it client1 sh
+```
+
+... And attempt to ping another client in the same group:
+
 ``` bash
 / # ping -c 5 192.168.0.3
 PING 192.168.0.3 (192.168.0.3) 56(84) bytes of data.
