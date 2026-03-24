@@ -1,0 +1,2 @@
+# Exclude clab artifacts folder
+clab-*/

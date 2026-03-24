@@ -1,0 +1,87 @@
+set / interface ethernet-1/1 admin-state enable
+set / interface ethernet-1/1 subinterface 0 ipv4 admin-state enable
+set / interface ethernet-1/1 subinterface 0 ipv4 address 10.1.2.1/24
+set / interface ethernet-1/2 admin-state enable
+set / interface ethernet-1/2 subinterface 0 type bridged
+set / interface ethernet-1/3 admin-state enable
+set / interface ethernet-1/3 subinterface 0 type bridged
+set / interface system0 subinterface 0 ipv4 admin-state enable
+set / interface system0 subinterface 0 ipv4 address 1.1.1.1/32
+
+set / tunnel-interface vxlan0 vxlan-interface 1 type bridged
+set / tunnel-interface vxlan0 vxlan-interface 1 ingress vni 1
+set / tunnel-interface vxlan0 vxlan-interface 1 bridge-table
+
+set / network-instance default interface ethernet-1/1.0
+set / network-instance default interface system0.0
+set / network-instance default protocols bgp admin-state enable
+set / network-instance default protocols bgp autonomous-system 100
+set / network-instance default protocols bgp router-id 1.1.1.1
+set / network-instance default protocols bgp afi-safi evpn admin-state enable
+set / network-instance default protocols bgp afi-safi evpn evpn inter-as-vpn true
+set / network-instance default protocols bgp afi-safi evpn evpn rapid-update true
+set / network-instance default protocols bgp afi-safi ipv4-unicast admin-state enable
+set / network-instance default protocols bgp afi-safi ipv4-unicast evpn rapid-update true
+set / network-instance default protocols bgp route-advertisement rapid-withdrawal true
+set / network-instance default protocols bgp route-advertisement wait-for-fib-install false
+set / network-instance default protocols bgp group evpn-peer peer-as 200
+set / network-instance default protocols bgp group evpn-peer export-policy [ evpn-peer-export-policy ]
+set / network-instance default protocols bgp group evpn-peer import-policy [ evpn-peer-import-policy ]
+set / network-instance default protocols bgp group evpn-peer afi-safi evpn admin-state enable
+set / network-instance default protocols bgp group evpn-peer afi-safi ipv4-unicast admin-state enable
+set / network-instance default protocols bgp neighbor 10.1.2.2 peer-group evpn-peer
+
+set / network-instance clients type mac-vrf
+set / network-instance clients interface ethernet-1/2.0
+set / network-instance clients interface ethernet-1/3.0
+set / network-instance clients vxlan-interface vxlan0.1
+set / network-instance clients protocols bgp-evpn bgp-instance 1 vxlan-interface vxlan0.1
+set / network-instance clients protocols bgp-evpn bgp-instance 1 evi 1
+set / network-instance clients protocols bgp-evpn bgp-instance 1 group-based-policy add-community true
+set / network-instance clients protocols bgp-evpn bgp-instance 1 group-based-policy install-from-community true
+set / network-instance clients protocols bgp-vpn bgp-instance 1 route-target export-rt target:1:1
+set / network-instance clients protocols bgp-vpn bgp-instance 1 route-target import-rt target:1:1
+set / network-instance clients group-based-policy group blue tag-value 10
+set / network-instance clients group-based-policy group red tag-value 20
+set / network-instance clients group-based-policy interface ethernet-1/2.0 group [ blue ]
+set / network-instance clients group-based-policy interface ethernet-1/3.0 group [ red ]
+set / network-instance clients group-based-policy acl entry 10 match source-group [ blue ]
+set / network-instance clients group-based-policy acl entry 10 match destination-group [ blue ]
+set / network-instance clients group-based-policy acl entry 10 action accept
+set / network-instance clients group-based-policy acl entry 20 match source-group [ red ]
+set / network-instance clients group-based-policy acl entry 20 match destination-group [ red ]
+set / network-instance clients group-based-policy acl entry 20 action accept
+set / network-instance clients group-based-policy acl entry 99 action drop
+
+set / routing-policy prefix-set system-loopback prefix 1.1.1.1/32 mask-length-range 32..32
+set / routing-policy policy evpn-peer-export-policy default-action policy-result reject
+set / routing-policy policy evpn-peer-export-policy statement 10 match protocol local
+set / routing-policy policy evpn-peer-export-policy statement 10 match prefix prefix-set system-loopback
+set / routing-policy policy evpn-peer-export-policy statement 10 action policy-result accept
+set / routing-policy policy evpn-peer-export-policy statement 20 match protocol bgp
+set / routing-policy policy evpn-peer-export-policy statement 20 action policy-result accept
+set / routing-policy policy evpn-peer-export-policy statement 30 match bgp evpn route-type [ 1 ]
+set / routing-policy policy evpn-peer-export-policy statement 30 action policy-result accept
+set / routing-policy policy evpn-peer-export-policy statement 40 match bgp evpn route-type [ 2 ]
+set / routing-policy policy evpn-peer-export-policy statement 40 action policy-result accept
+set / routing-policy policy evpn-peer-export-policy statement 50 match bgp evpn route-type [ 3 ]
+set / routing-policy policy evpn-peer-export-policy statement 50 action policy-result accept
+set / routing-policy policy evpn-peer-export-policy statement 60 match bgp evpn route-type [ 4 ]
+set / routing-policy policy evpn-peer-export-policy statement 60 action policy-result accept
+set / routing-policy policy evpn-peer-export-policy statement 70 match bgp evpn route-type [ 5 ]
+set / routing-policy policy evpn-peer-export-policy statement 70 action policy-result accept
+set / routing-policy policy evpn-peer-import-policy default-action policy-result reject
+set / routing-policy policy evpn-peer-import-policy statement 10 match protocol bgp
+set / routing-policy policy evpn-peer-import-policy statement 10 action policy-result accept
+set / routing-policy policy evpn-peer-import-policy statement 20 match bgp evpn route-type [ 1 ]
+set / routing-policy policy evpn-peer-import-policy statement 20 action policy-result accept
+set / routing-policy policy evpn-peer-import-policy statement 30 match bgp evpn route-type [ 2 ]
+set / routing-policy policy evpn-peer-import-policy statement 30 action policy-result accept
+set / routing-policy policy evpn-peer-import-policy statement 40 match bgp evpn route-type [ 3 ]
+set / routing-policy policy evpn-peer-import-policy statement 40 action policy-result accept
+set / routing-policy policy evpn-peer-import-policy statement 50 match bgp evpn route-type [ 4 ]
+set / routing-policy policy evpn-peer-import-policy statement 50 action policy-result accept
+set / routing-policy policy evpn-peer-import-policy statement 60 match bgp evpn route-type [ 5 ]
+set / routing-policy policy evpn-peer-import-policy statement 60 action policy-result accept
+
+set / platform resource-management group-based-policy mac-lookup true

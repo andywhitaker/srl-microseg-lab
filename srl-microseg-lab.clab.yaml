@@ -1,0 +1,43 @@
+name: srl-microseg-lab
+prefix: ""
+
+topology:
+  nodes:
+    srl1:
+      kind: nokia_srlinux
+      type: ixr-d2l
+      image: ghcr.io/nokia/srlinux:latest
+      startup-config: startup/srl1.partial.txt
+    srl2:
+      kind: nokia_srlinux
+      type: ixr-d2l
+      image: ghcr.io/nokia/srlinux:latest
+      startup-config: startup/srl2.partial.txt
+
+    client1:
+      kind: linux
+      image: ghcr.io/srl-labs/network-multitool:latest
+      exec:
+        - ip addr add 192.168.0.1/24 dev eth1
+    client2:
+      kind: linux
+      image: ghcr.io/srl-labs/network-multitool:latest
+      exec:
+        - ip addr add 192.168.0.2/24 dev eth1
+    client3:
+      kind: linux
+      image: ghcr.io/srl-labs/network-multitool:latest
+      exec:
+        - ip addr add 192.168.0.3/24 dev eth1
+    client4:
+      kind: linux
+      image: ghcr.io/srl-labs/network-multitool:latest
+      exec:
+        - ip addr add 192.168.0.4/24 dev eth1
+
+  links:
+    - endpoints: [ "srl1:e1-1", "srl2:e1-1" ]
+    - endpoints: [ "client1:eth1", "srl1:e1-2" ]
+    - endpoints: [ "client2:eth1", "srl1:e1-3" ]
+    - endpoints: [ "srl2:e1-2", "client3:eth1" ]
+    - endpoints: [ "srl2:e1-3", "client4:eth1" ]

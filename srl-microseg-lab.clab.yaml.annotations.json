@@ -1,0 +1,267 @@
+{
+  "freeTextAnnotations": [
+    {
+      "id": "freeText_1774330479134",
+      "text": "192.168.0.1/24",
+      "position": {
+        "x": 148.85957768218677,
+        "y": 355.2504334237325
+      },
+      "fontSize": 14,
+      "fontColor": "#ffffff",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "textAlign": "left",
+      "fontFamily": "Arial"
+    },
+    {
+      "id": "freeText_1774330493982",
+      "text": "192.168.0.2/24",
+      "position": {
+        "x": 147.59159569776676,
+        "y": 491.96913244294876
+      },
+      "fontSize": 14,
+      "fontColor": "#ffffff",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "textAlign": "left",
+      "fontFamily": "Arial"
+    },
+    {
+      "id": "freeText_1774330505862",
+      "text": "192.168.0.3/24",
+      "position": {
+        "x": 730.2105296988988,
+        "y": 354.13702921837125
+      },
+      "fontSize": 14,
+      "fontColor": "#ffffff",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "textAlign": "left",
+      "fontFamily": "Arial"
+    },
+    {
+      "id": "freeText_1774330518298",
+      "text": "192.168.0.4/24",
+      "position": {
+        "x": 730.2105296988987,
+        "y": 492.06723677081743
+      },
+      "fontSize": 14,
+      "fontColor": "#ffffff",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "textAlign": "left",
+      "fontFamily": "Arial"
+    },
+    {
+      "id": "freeText_1774330584110",
+      "text": "Micro-Segmentation",
+      "position": {
+        "x": 332.82105850257483,
+        "y": 217.6343165675927
+      },
+      "fontSize": 30,
+      "fontColor": "#ffffff",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "textAlign": "left",
+      "fontFamily": "Arial",
+      "width": 311,
+      "height": 113
+    },
+    {
+      "id": "freeText_1774330611798",
+      "text": "All clients are in the same bridge domain but separated into blue and red micro-segmenation groups",
+      "position": {
+        "x": 273.56753690531474,
+        "y": 442.0485900759744
+      },
+      "fontSize": 16,
+      "fontColor": "#ffbb00",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "textAlign": "center",
+      "fontFamily": "Arial",
+      "width": 419,
+      "height": 100
+    },
+    {
+      "id": "freeText_1774331151184",
+      "text": "EVPN-VXLAN",
+      "position": {
+        "x": 416.0982102024465,
+        "y": 332.82362467855626
+      },
+      "fontSize": 16,
+      "fontColor": "#e1ff00",
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "textDecoration": "none",
+      "textAlign": "center",
+      "fontFamily": "Arial"
+    }
+  ],
+  "freeShapeAnnotations": [
+    {
+      "id": "freeShape_1774330239411",
+      "shapeType": "rectangle",
+      "position": {
+        "x": 159.38646693136616,
+        "y": 285.378728554291
+      },
+      "width": 80,
+      "height": 85,
+      "fillColor": "#0008ff",
+      "fillOpacity": 0.4,
+      "borderColor": "#ffffff",
+      "borderWidth": 1,
+      "borderStyle": "solid",
+      "rotation": 0,
+      "zIndex": -1
+    },
+    {
+      "id": "freeShape_1774330323448",
+      "shapeType": "rectangle",
+      "position": {
+        "x": 159.7267129759797,
+        "y": 425.1843526946958
+      },
+      "width": 79,
+      "height": 83,
+      "fillColor": "#ff0000",
+      "fillOpacity": 0.4,
+      "borderColor": "#ffffff",
+      "borderWidth": 1,
+      "borderStyle": "solid",
+      "rotation": 0,
+      "zIndex": -1
+    },
+    {
+      "id": "freeShape_1774330410241",
+      "shapeType": "rectangle",
+      "position": {
+        "x": 741.3186296192164,
+        "y": 426.50386060546873
+      },
+      "width": 79,
+      "height": 84,
+      "fillColor": "#ff0000",
+      "fillOpacity": 0.4,
+      "borderColor": "#ffffff",
+      "borderWidth": 1,
+      "borderStyle": "solid",
+      "rotation": 0,
+      "zIndex": -1
+    },
+    {
+      "id": "freeShape_1774330433399",
+      "shapeType": "rectangle",
+      "position": {
+        "x": 741.9783835746027,
+        "y": 287.95552997431486
+      },
+      "width": 77,
+      "height": 83,
+      "fillColor": "#0008ff",
+      "fillOpacity": 0.4,
+      "borderColor": "#ffffff",
+      "borderWidth": 1,
+      "borderStyle": "solid",
+      "rotation": 0,
+      "zIndex": -1
+    },
+    {
+      "id": "freeShape_1774331000585",
+      "shapeType": "line",
+      "position": {
+        "x": 402.7026609472436,
+        "y": 379.29081384952883
+      },
+      "endPosition": {
+        "x": 535.9685668669792,
+        "y": 378.2735748497656
+      },
+      "fillColor": "#0008ff",
+      "fillOpacity": 0.4,
+      "borderColor": "#e1ff00",
+      "borderWidth": 5,
+      "borderStyle": "dashed",
+      "rotation": 0,
+      "lineStartArrow": true,
+      "lineEndArrow": true,
+      "lineArrowSize": 3,
+      "zIndex": -1
+    }
+  ],
+  "trafficRateAnnotations": [],
+  "groupStyleAnnotations": [],
+  "networkNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "srl1",
+      "position": {
+        "x": 340,
+        "y": 380
+      },
+      "icon": "router",
+      "interfacePattern": "e1-{n}"
+    },
+    {
+      "id": "srl2",
+      "position": {
+        "x": 560,
+        "y": 380
+      },
+      "icon": "router",
+      "interfacePattern": "e1-{n}"
+    },
+    {
+      "id": "client1",
+      "position": {
+        "x": 180,
+        "y": 300
+      },
+      "icon": "client",
+      "interfacePattern": "eth{n}"
+    },
+    {
+      "id": "client2",
+      "position": {
+        "x": 180,
+        "y": 440
+      },
+      "icon": "client",
+      "interfacePattern": "eth{n}"
+    },
+    {
+      "id": "client3",
+      "position": {
+        "x": 760,
+        "y": 300
+      },
+      "icon": "client",
+      "interfacePattern": "eth{n}"
+    },
+    {
+      "id": "client4",
+      "position": {
+        "x": 760,
+        "y": 440
+      },
+      "icon": "client",
+      "interfacePattern": "eth{n}"
+    }
+  ],
+  "edgeAnnotations": [],
+  "aliasEndpointAnnotations": [],
+  "viewerSettings": {}
+}
