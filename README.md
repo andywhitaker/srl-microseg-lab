@@ -18,6 +18,7 @@ The groups are defined through static interface membership and group ID numbers 
 
 ## Containerlab Deployment
 
+```
 ╭─────────┬───────────────────────────────────────────┬─────────┬───────────────────╮
 │   Name  │                 Kind/Image                │  State  │   IPv4/6 Address  │
 ├─────────┼───────────────────────────────────────────┼─────────┼───────────────────┤
@@ -39,6 +40,7 @@ The groups are defined through static interface membership and group ID numbers 
 │ srl2    │ nokia_srlinux                             │ running │ 172.20.20.6       │
 │         │ ghcr.io/nokia/srlinux:latest              │         │ 3fff:172:20:20::6 │
 ╰─────────┴───────────────────────────────────────────┴─────────┴───────────────────╯
+```
 
 ## Validation
 ### Client Pings
