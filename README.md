@@ -174,3 +174,6 @@ Received paths     : 1
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ```
+
+## Further
+This is just a basic example of the feature. Refer to the [micro-segmentation documentation](https://documentation.nokia.com/srlinux/26-3/books/vpn-services/micro-segmentation.html) for more information and features.
