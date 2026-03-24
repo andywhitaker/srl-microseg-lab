@@ -53,7 +53,7 @@ Any attempt to ping across groups will fail.
 
 To ping log into the shell of one of the clients:
 
-```
+``` bash
 docker exec -it client1 sh
 ```
 
