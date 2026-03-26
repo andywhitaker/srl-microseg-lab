@@ -47,10 +47,13 @@ set / network-instance clients group-based-policy interface ethernet-1/2.0 group
 set / network-instance clients group-based-policy interface ethernet-1/3.0 group [ red ]
 set / network-instance clients group-based-policy acl entry 10 match source-group [ blue ]
 set / network-instance clients group-based-policy acl entry 10 match destination-group [ blue ]
+set / network-instance clients group-based-policy acl entry 10 action collect-stats true
 set / network-instance clients group-based-policy acl entry 10 action accept
 set / network-instance clients group-based-policy acl entry 20 match source-group [ red ]
 set / network-instance clients group-based-policy acl entry 20 match destination-group [ red ]
+set / network-instance clients group-based-policy acl entry 20 action collect-stats true
 set / network-instance clients group-based-policy acl entry 20 action accept
+set / network-instance clients group-based-policy acl entry 99 action collect-stats true
 set / network-instance clients group-based-policy acl entry 99 action drop
 
 set / routing-policy prefix-set system-loopback prefix 1.1.1.1/32 mask-length-range 32..32

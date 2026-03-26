@@ -174,6 +174,44 @@ Received paths     : 1
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ```
+### ACL Stats
+It is possible view the ACLs and how many times traffic matched the ACL if you have enabled `collect-stats true` under the group-based-policy ACL action:
+
+> [!TIP]
+> Configuration Example to Enable Stats Collection:
+> ```
+> set / network-instance clients group-based-policy acl entry 10 action collect-stats true
+> ```
+> Stats have been enabled already for all ACLs in this lab
+
+
+View ACLs and stats:
+```
+A:admin@srl1# show acl gbp-filter *
+=====================================================================================================================================================================================
+Network Instance: clients
+Entries         : 3
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Entry 10
+  Match               : protocol=<undefined>, [blue:10](*)->[blue:10](*)
+  Action              : accept
+  Collect Stats       : true
+  Match Packets       : 30
+  Last Match          : 10 seconds ago
+Entry 20
+  Match               : protocol=<undefined>, [red:20](*)->[red:20](*)
+  Action              : accept
+  Collect Stats       : true
+  Match Packets       : 0
+  Last Match          : never
+Entry 99
+  Match               : protocol=<undefined>, [any](*)->[any](*)
+  Action              : drop
+  Collect Stats       : true
+  Match Packets       : 24
+  Last Match          : 10 seconds ago
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
 
 ## Further
 This is just a basic example of the feature. Refer to the [micro-segmentation documentation](https://documentation.nokia.com/srlinux/26-3/books/vpn-services/micro-segmentation.html) for more information and features.
